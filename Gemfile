@@ -67,7 +67,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'friendly_id'
 gem 'ransack'
-gem 'bootstrap', '~> 5.1.3'
+gem 'bootstrap', '~> 5.3.5'
 gem 'jquery-rails'
 
 gem 'mimemagic', '~> 0.4.3'
