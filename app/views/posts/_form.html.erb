@@ -1,0 +1,29 @@
+<%= form_with(model: post, local: true, html: { multipart: true }) do |form| %>
+  <% if post.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :image, "Upload Image", class: 'form-label' %>
+    <%= form.file_field :image, class: 'form-control', required: true %>
+    <div class="form-text">Select an image to upload</div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :caption, "Caption", class: 'form-label' %>
+    <%= form.text_area :caption, class: 'form-control', rows: 4, placeholder: 'Write a caption...' %>
+    <div class="form-text">Maximum 2200 characters</div>
+  </div>
+
+  <div class="d-grid gap-2">
+    <%= form.submit 'Create Post', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', posts_path, class: 'btn btn-outline-secondary' %>
+  </div>
+<% end %>
